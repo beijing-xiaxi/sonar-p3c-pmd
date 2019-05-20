@@ -30,7 +30,6 @@ import org.sonar.api.utils.Version;
 import org.sonar.plugins.pmd.profile.PmdProfileExporter;
 import org.sonar.plugins.pmd.profile.PmdProfileImporter;
 import org.sonar.plugins.pmd.rule.PmdRulesDefinition;
-import org.sonar.plugins.pmd.rule.PmdUnitTestsRulesDefinition;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -53,7 +52,6 @@ class PmdPluginTest {
                 PmdConfiguration.class,
                 PmdExecutor.class,
                 PmdRulesDefinition.class,
-                PmdUnitTestsRulesDefinition.class,
                 PmdProfileExporter.class,
                 PmdProfileImporter.class,
                 PmdViolationRecorder.class

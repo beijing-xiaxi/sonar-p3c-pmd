@@ -1,0 +1,54 @@
+<p>
+说明：Executors各个方法的弊端：
+1）newFixedThreadPool和newSingleThreadExecutor:
+  主要问题是堆积的请求处理队列可能会耗费非常大的内存，甚至OOM。
+2）newCachedThreadPool和newScheduledThreadPool:
+  主要问题是线程数最大数是Integer.MAX_VALUE，可能会创建数量非常多的线程，甚至OOM。</p>
+<h2>示例 1：</h2>
+<xmp>
+Positive example 1：
+    //org.apache.commons.lang3.concurrent.BasicThreadFactory
+    ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(1,
+        new BasicThreadFactory.Builder().namingPattern("example-schedule-pool-%d").daemon(true).build());
+       </xmp>
+<h2>示例 2：</h2>
+<xmp>
+Positive example 2：
+    ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
+        .setNameFormat("demo-pool-%d").build();
+
+    //Common Thread Pool
+    ExecutorService pool = new ThreadPoolExecutor(5, 200,
+        0L, TimeUnit.MILLISECONDS,
+        new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+
+    pool.execute(()-> System.out.println(Thread.currentThread().getName()));
+    pool.shutdown();//gracefully shutdown
+       </xmp>
+<h2>示例 3：</h2>
+<xmp>
+Positive example 3：
+    <bean id="userThreadPool"
+        class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="10" />
+        <property name="maxPoolSize" value="100" />
+        <property name="queueCapacity" value="2000" />
+
+    <property name="threadFactory" value= threadFactory />
+        <property name="rejectedExecutionHandler">
+            <ref local="rejectedExecutionHandler" />
+        </property>
+    </bean>
+    //in code
+    userThreadPool.execute(thread);
+       </xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

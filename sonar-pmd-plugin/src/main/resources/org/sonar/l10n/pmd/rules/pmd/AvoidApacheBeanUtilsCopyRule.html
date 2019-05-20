@@ -1,0 +1,20 @@
+<p>
+说明：Apache BeanUtils性能较差，可以使用其他方案比如Spring BeanUtils, Cglib BeanCopier。
+        </p>
+<h2>示例：</h2>
+<xmp>
+    TestObject a = new TestObject();
+    TestObject b = new TestObject();
+    a.setX(b.getX());
+    a.setY(b.getY());
+</xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

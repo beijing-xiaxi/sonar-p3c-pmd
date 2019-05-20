@@ -1,0 +1,22 @@
+<p> long或者Long初始赋值时，必须使用大写的L，不能是小写的l，小写容易跟数字1混淆，造成误解。</p>
+<h2>示例 1：</h2>
+<xmp>
+Negative example:
+    //It is hard to tell whether it is number 11 or Long 1.
+    Long warn = 1l;
+       </xmp>
+<h2>示例 2：</h2>
+<xmp>
+Positive example:
+    Long notwarn = 1L;
+        </xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

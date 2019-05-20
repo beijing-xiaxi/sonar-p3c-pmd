@@ -1,0 +1,21 @@
+<p>注意 Math.random() 这个方法返回是double类型，注意取值的范围[0,1)（能够取到零值，注意除零异常），如果想获取整数类型的随机数，不要将x放大10的若干倍然后取整，直接使用Random对象的nextInt或者nextLong方法。</p>
+<h2>示例 1：</h2>
+<xmp>
+Negative example:
+    Long randomLong =(long) (Math.random() * 10);
+</xmp>
+<h2>示例 2：</h2>
+<xmp>
+Positive example:
+    Long randomLong = new Random().nextLong();
+</xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

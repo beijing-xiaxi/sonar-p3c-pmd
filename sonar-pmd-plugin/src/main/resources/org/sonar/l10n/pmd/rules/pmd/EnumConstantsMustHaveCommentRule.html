@@ -1,0 +1,34 @@
+<p>所有的枚举类型字段必须要有注释，说明每个数据项的用途。</p>
+<h2>示例：</h2>
+<xmp>
+    public enum TestEnum {
+        /**
+         * agree
+         */
+        agree("agree"),
+        /**
+         * reject
+         */
+        reject("reject");
+        
+        private String action;
+    
+        TestEnum(String action) {
+            this.action = action;
+        }
+    
+        public String getAction() {
+            return action;
+        }
+    }
+</xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

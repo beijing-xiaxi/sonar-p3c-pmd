@@ -1,0 +1,24 @@
+<p>对于Service和DAO类，基于SOA的理念，暴露出来的服务一定是接口，内部的实现类用Impl的后缀与接口区别</p>
+<h2>示例：</h2>
+<xmp>
+    public interface DemoService{
+        void f();
+    }
+
+    public class DemoServiceImpl implements DemoService {
+        @Override
+        public void f(){
+            System.out.println("hello world");
+        }
+    }
+            </xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

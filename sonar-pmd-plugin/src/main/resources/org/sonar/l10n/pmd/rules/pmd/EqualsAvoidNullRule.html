@@ -1,0 +1,20 @@
+<p>Object的equals方法容易抛空指针异常，应使用常量或确定有值的对象来调用equals。</p>
+<h2>示例：</h2>
+<xmp>
+    public void f(String str){
+        String inner = "hi";
+        if (inner.equals(str)) {
+            System.out.println("hello world");
+        }
+    }
+			</xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

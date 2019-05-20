@@ -1,0 +1,28 @@
+<p>说明：反编译出的字节码文件显示每次循环都会new出一个StringBuilder对象，然后进行append操作，最后通过toString方法返回String对象，造成内存资源浪费。</p>
+<h2>示例 1：</h2>
+<xmp>
+Negative example:
+    String result;
+    for (String string : tagNameList) {
+        result = result + string;
+    }
+</xmp>
+<h2>示例 2：</h2>
+<xmp>
+Positive example:
+    StringBuilder stringBuilder = new StringBuilder();
+    for (String string : tagNameList) {
+        stringBuilder.append(string);
+    }
+    String result = stringBuilder.toString();
+</xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

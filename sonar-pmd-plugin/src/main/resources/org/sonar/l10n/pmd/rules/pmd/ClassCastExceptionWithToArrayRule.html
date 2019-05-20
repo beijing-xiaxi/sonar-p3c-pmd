@@ -1,0 +1,21 @@
+<p>使用集合转数组的方法，必须使用集合的toArray(T[] array)，传入的是类型完全一样的数组，大小就是list.size()</p>
+<h2>示例 1：</h2>
+<xmp>    
+Negative example:  
+   Integer[] a = (Integer [])c.toArray();
+        </xmp>
+<h2>示例 2：</h2>
+<xmp>
+Positive example： 
+   Integer[] b = (Integer [])c.toArray(new Integer[c.size()]); 
+         </xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

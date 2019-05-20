@@ -19,8 +19,10 @@
  */
 package org.sonar.plugins.pmd.rule;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
@@ -72,7 +74,8 @@ public final class PmdRulesDefinition implements RulesDefinition {
         Properties properties = new Properties();
 
         try (InputStream stream = PmdRulesDefinition.class.getResourceAsStream("/org/sonar/l10n/pmd.properties")) {
-            properties.load(stream);
+            BufferedReader bf=new BufferedReader(new InputStreamReader(stream));
+            properties.load(bf);
         } catch (IOException e) {
             throw new IllegalArgumentException("Could not read names from properties", e);
         }

@@ -1,0 +1,24 @@
+<p> 说明:禁止强转，如果需要用到集合特性方法，请新建一个集合，然后置入sublist,new 集合(sublist结果)。 </p>
+<h2>示例 1：</h2>
+<xmp> 
+Negative example:
+   List<String> list = new ArrayList<String>();
+   list.add("22");
+   //warn
+   List<String> test = (ArrayList<String>) list.subList(0, 1);	 
+         </xmp>
+<h2>示例 2：</h2>
+<xmp> 
+Positive example:
+   List<String> list2 = new ArrayList<String>(list.subList(0, 1));
+         </xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

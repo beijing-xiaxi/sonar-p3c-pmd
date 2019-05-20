@@ -1,0 +1,27 @@
+<p> 不允许任何魔法值（即未经定义的常量）直接出现在代码中。</p>
+<h2>示例 1：</h2>
+<xmp>    
+Negative example:
+    //Magic values, except for predefined, are forbidden in coding.
+    if (key.equals("Id#taobao_1")) {
+            //...
+    }
+         </xmp>
+<h2>示例 2：</h2>
+<xmp> 
+Positive example:
+    String KEY_PRE = "Id#taobao_1";  
+    if (KEY_PRE.equals(key)) {
+            //...
+    }
+      </xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+

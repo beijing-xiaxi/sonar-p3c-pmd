@@ -1,0 +1,43 @@
+<p>
+说明：如果是JDK8的应用，可以使用instant代替Date，LocalDateTime代替Calendar，DateTimeFormatter代替SimpleDateFormat，官方给出的解释：simple beautiful strong immutable thread-safe。
+       </p>
+<h2>示例 1：</h2>
+<xmp>
+Positive example 1：
+    private static final String FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public String getFormat(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(FORMAT);
+        return dateFormat.format(date);
+    }
+        </xmp>
+<h2>示例 2：</h2>
+<xmp>
+Positive example 2：
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public void getFormat() {
+        synchronized(SIMPLE_DATE_FORMAT) {
+            SIMPLE_DATE_FORMAT.format(new Date());
+            // do something
+        }
+    }
+        </xmp>
+<h2>示例 3：</h2>
+<xmp>
+Positive example 3：
+    private static final ThreadLocal<DateFormat> DATE_FORMATTER = new ThreadLocal<DateFormat>() {
+        @Override
+        protected DateFormat initialValue() {
+            return new SimpleDateFormat("yyyy-MM-dd");
+        }
+    };
+        </xmp>
+
+  <style>
+    xmp{
+      padding: 10px;
+      border-top: 1px solid #e6e6e6;
+      line-height: 18px;
+      overflow: auto;
+    }
+  </style>
+
