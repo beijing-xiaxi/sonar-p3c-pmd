@@ -55,7 +55,6 @@ class PmdRuleSetsTest {
         assertThat(result)
                 .isNotNull()
                 .extracting("rules")
-                .element(0)
                 .asList()
                 .isEmpty();
     }
